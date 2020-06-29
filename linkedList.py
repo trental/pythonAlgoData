@@ -47,6 +47,22 @@ class UnorderedList:
 
         return found
 
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
 mylist = UnorderedList()
 
 mylist.add(31)
@@ -57,4 +73,6 @@ mylist.add(26)
 mylist.add(54)
 
 print(mylist.length())
-print(mylist.search(53))
+print(mylist.search(17))
+print(mylist.remove(53))
+print(mylist.search(54))
