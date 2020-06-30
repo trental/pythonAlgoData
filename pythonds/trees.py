@@ -82,5 +82,9 @@ class BinaryHeap:
         self.currentSize = len(alist)
         self.heapList = [0] + alist[:]
         while(i > 0):
+            print('i = ',str(i))
+            print(self.heapList)
             self.percDown(i)
             i = i - 1
+        print('i = ',str(i))
+        print(self.heapList)    
