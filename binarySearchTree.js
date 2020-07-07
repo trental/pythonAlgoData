@@ -42,6 +42,32 @@ class BinarySearchTree {
 	setItem(k, v) {
 		this.put(k, v);
 	}
+
+	get(key) {
+		if (this.root) {
+			let res = this._get(key, this.root);
+			return res ? res.payload : null;
+		} else {
+			return null;
+		}
+	}
+
+	_get(key, currentNode) {
+		console.log(currentNode);
+		if (!currentNode) {
+			return null;
+		} else if (currentNode.key === key) {
+			return currentNode;
+		} else if (key < currentNode.key) {
+			return this._get(key, currentNode.leftChild);
+		} else {
+			return this._get(key, currentNode.rightChild);
+		}
+	}
+
+	getItem(k) {
+		return this.get(k);
+	}
 }
 
 class TreeNode {
@@ -110,3 +136,4 @@ console.log(bst.put(14, 'fifth'));
 console.log(bst.put(23, 'sixth'));
 console.log(bst.put(73, 'seventh'));
 console.log(bst.root);
+console.log(bst.get(14));
